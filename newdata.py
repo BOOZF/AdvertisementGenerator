@@ -2,11 +2,7 @@ import streamlit as st
 import pandas as pd
 import re
 import json
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 import pandas as pd
-import json
 
 def app():
     
@@ -17,9 +13,7 @@ def app():
         text = re.sub(r"\s+", " ", text)
         # Remove leading and trailing spaces
         text = text.strip()
-        # Remove stopwords
-        english_stopwords = set(stopwords.words('english'))
-        text = ' '.join([word for word in word_tokenize(text) if word.lower() not in english_stopwords])
+        
         return text
     
     def insert_sentence_to_jsonl(sentence, jsonl_file):
